@@ -23,12 +23,14 @@
 
 ## :camera: Screenshots
 
-![screen print](./img/admin.png)
+![screen print](./img/covid.png)
 
 ## :signal_strength: Technologies
 
 * [Python v3](https://www.python.org/) programming language
 * [Django v3](https://www.djangoproject.com/) server-side web framework
+* [Bootstrap v4](https://getbootstrap.com/)
+* [Bootswatch v4](https://bootswatch.com/) Bootstrap themes - Spacelab theme used
 
 ## :floppy_disk: Setup
 
@@ -42,25 +44,45 @@
 * Run `pip freeze` to see list of modules installed. [Ref. Docs](https://pip.pypa.io/en/stable/reference/pip_freeze/)
 * Run `python manage.py makemigrations` for changes to models etc.
 * Run `python manage.py migrate` to migrate the migration files.
-* To add a superuser Run `python manage.py createsuperuser --username=joe --email=joe@example.com` [Ref. Docs](https://docs.djangoproject.com/en/3.1/topics/auth/default/)
+* For Admin panel: to add a superuser Run `python manage.py createsuperuser --username=joe --email=joe@example.com` [Ref. Docs](https://docs.djangoproject.com/en/3.1/topics/auth/default/)
 * Run `python manage.py runserver` to run server on port 8000 and open /admin console
 
 ## :computer: Code Examples
 
-* extract from t
+* extract from `views.py` to get Covid data from API and prepare data required for html template
 
 ```python
-
+def home(request):
+    url = "https://covid-193.p.rapidapi.com/statistics"
+    querystring = {"country":"France"}
+    headers = {
+        'x-rapidapi-key': "a6f5f5daa9msh415e131fbb7e735p1994d1jsnb2bc491b075e",
+        'x-rapidapi-host': "covid-193.p.rapidapi.com"
+        }
+    response = requests.request("GET", url, headers=headers, params=querystring).json()
+    data = response['response']
+    d = data[0]
+    print(d)
+    context = {
+      'country': d['country'],
+      'all': d['cases']['total'],
+      'recovered': d['cases']['recovered'],
+      'deaths': d['deaths']['total'],
+      'new': d['cases']['new'],
+      'critical': d['cases']['critical'],
+      'date': d['day']
+    }
+    return render(request, 'index.html', context)
 ```
 
 ## :cool: Features
 
-* t
+* [Bootswatch v4](https://bootswatch.com/) makes it very easy to change themes
 
 ## :clipboard: Status & To-do list
 
-* Status: Working but can be improved
-* To-do: Add commas to numbers.
+* Status: Working
+* To-do: Add commas to numbers. Move API code to services, add country pull-down selector.
 
 ## :clap: Inspiration
 

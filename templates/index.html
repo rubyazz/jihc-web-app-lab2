@@ -6,110 +6,62 @@
 		<title>Coronavirus Info</title>
 		<link
 			rel="stylesheet"
-			href="https://bootswatch.com/4/flatly/bootstrap.min.css"
+			href="https://bootswatch.com/4/spacelab/bootstrap.min.css"
 		/>
 	</head>
-	<body style="background-color: #15202b">
+	<body style="background-color: #ffffff">
 		<div class="text-center">
 			<h3 style="color: white" class="p-3 bg-primary">
-				Coronavirus in {{ country }}<span style="color: rgb(167, 164, 214)">&nbsp{{ date }}</span>
+				Coronavirus in {{ country }}
 			</h3>
 		</div>
 		<div class="container">
-			<section id="counter" class="section-padding">
-				<div class="overlay"></div>
-				<div class="container">
-					<div class="row justify-content-between">
-						<div class="col-lg-12 col-md-12 col-xs-12">
-							<div class="mt-4 text-center row">
-								<!-- Start counter -->
-								<div
-									class="bg-danger mb-3 m-2 rounded-lg p-3 col-lg-3 col-md-6 col-xs-12"
-								>
-									<div class="counter-box wow fadeInUp" data-wow-delay="0.2s">
-										<div class="icon-o"><i class="lni-users"></i></div>
-										<div class="fact-count">
-											<h2>
-												<span class="counter"> <b>{{ all }}</b> </span>
-											</h2>
-											<h3>All Cases</h3>
-										</div>
-									</div>
-								</div>
-								<!-- End counter -->
-								<!-- Start counter -->
-								<div
-									class="bg-success mb-3 m-2 rounded-lg p-3 col-lg-3 col-md-6 col-xs-12"
-								>
-									<div class="counter-box wow fadeInUp" data-wow-delay="0.2s">
-										<div class="icon-o"><i class="lni-users"></i></div>
-										<div class="fact-count">
-											<h2>
-												<span class="counter"> <b>{{ recovered }}</b> </span>
-											</h2>
-											<h3>Recovered</h3>
-										</div>
-									</div>
-								</div>
-								<!-- End counter -->
-								<!-- Start counter -->
-								<div
-									class="bg-secondary mb-3 m-2 rounded-lg p-3 col-lg-3 col-md-6 col-xs-12"
-								>
-									<div class="counter-box wow fadeInUp" data-wow-delay="0.2s">
-										<div class="icon-o"><i class="lni-users"></i></div>
-										<div class="fact-count">
-											<h2>
-												<span class="counter"> <b>{{ deaths }}</b> </span>
-											</h2>
-											<h3>Deaths</h3>
-										</div>
-									</div>
-								</div>
+			<div class="row justify-content-between">
+				<div class="col-lg-12 col-md-12 col-xs-12">
+					<div class="mx-auto text-center row">
+						<!-- All cases -->
+						<div class="card text-white bg-primary m-2" style="width: 20rem">
+							<div class="card-header"><h1>All Cases</h1></div>
+							<div class="card-body p2">
+								<h3 class="card-title">{{ all }}</h3>
+							</div>
+						</div>
 
-								<div
-									class="bg-warning mb-3 m-2 rounded-lg p-3 col-lg-3 col-md-6 col-xs-12"
-								>
-									<div class="counter-box wow fadeInUp" data-wow-delay="0.2s">
-										<div class="icon-o"><i class="lni-users"></i></div>
-										<div class="fact-count">
-											<h2>
-												<span class="counter"> <b>{{ new }}</b> </span>
-											</h2>
-											<h3>New Cases</h3>
-										</div>
-									</div>
-								</div>
+						<!-- Recovered -->
+						<div class="card text-white bg-success m-2" style="width: 20rem">
+							<div class="card-header"><h1>Recovered</h1></div>
+							<div class="card-body p2">
+								<h3 class="card-title">{{ recovered }}</h3>
+							</div>
+						</div>
 
-								<div
-									class="bg-info mb-3 m-2 rounded-lg p-3 col-lg-3 col-md-6 col-xs-12"
-								>
-									<div class="counter-box wow fadeInUp" data-wow-delay="0.2s">
-										<div class="icon-o"><i class="lni-users"></i></div>
-										<div class="fact-count">
-											<h2>
-												<span class="counter"> <b>{{ critical }}</b> </span>
-											</h2>
-											<h3>Critical Cases</h3>
-										</div>
-									</div>
-								</div>
-								<!-- End counter -->
+						<!--Deaths -->
+						<div class="card text-white bg-danger m-2" style="width: 20rem">
+							<div class="card-header"><h1>Deaths</h1></div>
+							<div class="card-body p2">
+								<h3 class="card-title">{{ deaths }}</h3>
+							</div>
+						</div>
+
+						<!--New cases-->
+						<div class="card text-white bg-warning m-2" style="width: 20rem">
+							<div class="card-header"><h1>New Cases</h1></div>
+							<div class="card-body p2">
+								<h3 class="card-title">{{ new }}</h3>
+							</div>
+						</div>
+
+						<!--Critical cases-->
+						<div class="card text-white bg-dark m-2" style="width: 20rem">
+							<div class="card-header"><h1>Critical Cases</h1></div>
+							<div class="card-body p2">
+								<h3 class="card-title">{{ critical }}</h3>
 							</div>
 						</div>
 					</div>
 				</div>
-			</section>
-			<!-- Counter Section End -->
-		</div>
-		<!-- <footer>
-			<div class="text-center">
-				<p class="bg-success">
-					Developed by
-					<a href=""></a> .
-				</p>
 			</div>
-		</footer> -->
+		</div>
 
 		<script
 			src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
