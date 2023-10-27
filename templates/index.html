@@ -1,82 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Coronavirus Info</title>
-		<link
-			rel="stylesheet"
-			href="https://bootswatch.com/4/spacelab/bootstrap.min.css"
-		/>
-	</head>
-	<body style="background-color: #ffffff">
-		<div class="text-center">
-			<h3 style="color: white" class="p-3 bg-primary">
-				Coronavirus in {{ country }}
-			</h3>
-		</div>
-		<div class="container">
-			<div class="row justify-content-between">
-				<div class="col-lg-12 col-md-12 col-xs-12">
-					<div class="mx-auto text-center row">
-						<!-- All cases -->
-						<div class="card text-white bg-primary m-2" style="width: 20rem">
-							<div class="card-header"><h1>All Cases</h1></div>
-							<div class="card-body p2">
-								<h3 class="card-title">{{ all }}</h3>
-							</div>
-						</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coronavirus Info</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/spacelab/bootstrap.min.css">
+</head>
+<body style="background-color: #ffffff">
+    <div class="text-center">
+        <h3 style="color: white" class="p-3 bg-primary">Coronavirus Information</h3>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <form action="/" method="GET" class="form-inline my-4">
+                <label for="country" class="mr-2">Enter Country:</label>
+                <input type="text" id="country" name="country" class="form-control mb-2 mr-sm-2">
+                <button type="submit" class="btn btn-primary mb-2">Search</button>
+            </form>
+        </div>
+        {% if country %}
+        <div class="row justify-content-center">
+            <h2>Coronavirus in {{ country }}</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="card text-white bg-primary m-2" style="width: 20rem">
+                <div class="card-header"><h1>All Cases</h1></div>
+                <div class="card-body p2">
+                    <h3 class="card-title">{{ all }}</h3>
+                </div>
+            </div>
 
-						<!-- Recovered -->
-						<div class="card text-white bg-success m-2" style="width: 20rem">
-							<div class="card-header"><h1>Recovered</h1></div>
-							<div class="card-body p2">
-								<h3 class="card-title">{{ recovered }}</h3>
-							</div>
-						</div>
+            <div class="card text-white bg-success m-2" style="width: 20rem">
+                <div class="card-header"><h1>Recovered</h1></div>
+                <div class="card-body p2">
+                    <h3 class="card-title">{{ recovered }}</h3>
+                </div>
+            </div>
 
-						<!--Deaths -->
-						<div class="card text-white bg-danger m-2" style="width: 20rem">
-							<div class="card-header"><h1>Deaths</h1></div>
-							<div class="card-body p2">
-								<h3 class="card-title">{{ deaths }}</h3>
-							</div>
-						</div>
+            <div class="card text-white bg-danger m-2" style="width: 20rem">
+                <div class="card-header"><h1>Deaths</h1></div>
+                <div class="card-body p2">
+                    <h3 class="card-title">{{ deaths }}</h3>
+                </div>
+            </div>
 
-						<!--New cases-->
-						<div class="card text-white bg-warning m-2" style="width: 20rem">
-							<div class="card-header"><h1>New Cases</h1></div>
-							<div class="card-body p2">
-								<h3 class="card-title">{{ new }}</h3>
-							</div>
-						</div>
+            <div class="card text-white bg-warning m-2" style="width: 20rem">
+                <div class="card-header"><h1>New Cases</h1></div>
+                <div class="card-body p2">
+                    <h3 class="card-title">{{ new }}</h3>
+                </div>
+            </div>
 
-						<!--Critical cases-->
-						<div class="card text-white bg-dark m-2" style="width: 20rem">
-							<div class="card-header"><h1>Critical Cases</h1></div>
-							<div class="card-body p2">
-								<h3 class="card-title">{{ critical }}</h3>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<script
-			src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-			integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-			crossorigin="anonymous"
-		></script>
-	</body>
+            <div class="card text-white bg-dark m-2" style="width: 20rem">
+                <div class="card-header"><h1>Critical Cases</h1></div>
+                <div class="card-body p2">
+                    <h3 class="card-title">{{ critical }}</h3>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <!-- Bootstrap JavaScript CDN links -->
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"
+    ></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"
+    ></script>
+    <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"
+    ></script>
+</body>
 </html>
